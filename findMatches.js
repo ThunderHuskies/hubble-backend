@@ -89,7 +89,9 @@ async function calculateRatingsForUsers(user, otherUsers) {
       if (user.name === otherUser.name && user.phone === otherUser.phone) {
         return;
       }
-      allUsersData.push(otherUser.data());
+      let data = otherUser.data();
+      data.uid = otherUser.id;
+      allUsersData.push(data);
     });
     let allUserRatings = [];
     await Promise.all(
