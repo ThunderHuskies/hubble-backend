@@ -115,7 +115,7 @@ async function calculateRatingsForUsers(user, otherUsers) {
 }
 
 exports.findMatches = async (req, res) => {
-  const uid = req.body.uid;
+  const uid = req.query.uid;
   try {
     // Get current user
     const currentUser = await db.collection("users").doc(uid).get();
